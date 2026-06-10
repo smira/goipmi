@@ -65,6 +65,19 @@ func TestOptions(t *testing.T) {
 			},
 			[]string{"-H", "h", "-U", "u", "-I", "lan", "-E"},
 		},
+		{
+			"should append extra args",
+			&Connection{
+				Path:      "",
+				Hostname:  "h",
+				Port:      1623,
+				Username:  "u",
+				Password:  "p",
+				Interface: "lan",
+				ExtraArgs: []string{"-C3"},
+			},
+			[]string{"-H", "h", "-U", "u", "-I", "lan", "-E", "-p", "1623", "-C3"},
+		},
 	}
 
 	for _, test := range tests {

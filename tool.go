@@ -80,6 +80,8 @@ func (t *tool) options() []string {
 		options = append(options, "-p", strconv.Itoa(t.Port))
 	}
 
+	options = append(options, t.ExtraArgs...)
+
 	return options
 }
 
